@@ -1,0 +1,58 @@
+config:
+  # 开启 debug 则不会创建订单, 不要开
+  debug: false
+  # 4: INFO; 5: DEBUG; 默认: INFO
+  logLevel: 4
+  # 是否需要特需号, 默认 false 不需要
+  special: false
+  # 是否使用文件登录, 不要开
+  useFile: false
+  # 是否开启强轮询模式, 如果开启, 当所有医生都没号时会尝试向所有医生发起订单
+  tryBest: false
+  # 是否开启倒序遍历, 如果开启, 会从下午场的普通号开始尝试挂号
+  desc: false
+  # 是否通过键盘输入验证码, 如果否, 会通过 Mac 自带的 imessage 从手机抓取验证码,
+  # 前提是你的 iphone 手机开启短信转发到 mac, 且 mac 开启了 shell 访问 ~/Library/Messages 的权限
+  byKB: true
+  # 是否开启并发下单
+  concurrent: true
+
+# 如果希望通过百度 AI 识别图片验证码, 请注册一个百度 AI 账户, 并填写以下配置.
+#baiConfig:
+#  clientID: xxxxx
+#  clientSecret: xxxx
+
+userInfo:
+  # 114账号的手机号, 不是病人的手机号
+  phone: 132********
+
+  # 如果有医保, 填病人医保号码, 否则填身份证号
+  cardNo: 411*******
+  # 如果有医保, 填 SOCIAL_SECURITY; 否则填 IDENTITY_CARD
+  cardType: IDENTITY_CARD
+
+  # 如果为本人挂号则填 true; 为他人挂号填 false. 需要提前在 114 上添加该病人
+  isSelf: false
+
+targetInfo:
+  # 医院科室. 需要打开 114 网站, 登录账号后, 找到要去的医院科室, 点进排班表后, 通过所访问的网站链接查看编号,
+  # 例如访问的是 https://www.114yygh.com/hospital/H02110003/04/402/source, 则
+  # hosCode=H02110003, firstDeptCode=04, secondDeptCode=402
+  hosCode: "H02110003"
+  firstDeptCode: "04"
+  secondDeptCode: "402"
+
+  # 要看病的日期. 注意是看病日, 不是抢号日, 抢号日一般在看病日前 7 天. 具体需要到 114 官网查看何时开始抢号.
+  # 如果 target 为空, 会使用当前日期+targetDuration 为 target, 例如今天是 8.22, targetDuration=7, 则 target=8.29
+  target: "2023-08-25"
+  targetDuration: 7
+
+  # 何时开始抢号. 如果填 T16:00:00+08:00, 则默认是当前日期的 16 点, 比如你启动脚本的时候是 2023-08-17 12点,
+  # 则脚本会在 2023-08-17 16点开始抢号;
+  # 协和每天下午 16 点开抢未来第 7 天的号, 因此如果你要抢 2023-08-25 的号, 就需要在 2023-08-18 16 点前配好配置并启动脚本
+  time: "2023-08-17T16:00:00+08:00"
+  # 想看的医生名字列表. 如果不填(即把下面几行注释掉), 则会按医生级别从高到底抢号, 如果填了, 只抢指定医生的号.
+  doctorNames:
+    - 张三
+    - 李四
+

@@ -1,0 +1,7 @@
+.idea
+data/cookie*
+data/mobile
+src
+config/*
+!config/config_template.yaml
+code.jpg

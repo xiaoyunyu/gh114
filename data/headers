@@ -1,0 +1,14 @@
+--header 'Accept: application/json, text/plain, */*' \
+--header 'Accept-Language: zh' \
+--header 'Connection: keep-alive' \
+--header 'Content-Type: application/json;charset=UTF-8' \
+--header 'Origin: https://www.114yygh.com' \
+--header 'Referer: https://www.114yygh.com/' \
+--header 'Request-Source: PC' \
+--header 'Sec-Fetch-Dest: empty' \
+--header 'Sec-Fetch-Mode: cors' \
+--header 'Sec-Fetch-Site: same-origin' \
+--header 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' \
+--header 'sec-ch-ua: "Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"' \
+--header 'sec-ch-ua-mobile: ?0' \
+--header 'sec-ch-ua-platform: "macOS"'
